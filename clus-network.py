@@ -33,22 +33,22 @@ ln['var_name'] = ln['var_name'].apply(lambda x: x.replace('WOE_', ''))
 for row in fmcc.itertuples():
     _, clus, var, rsq, rsq_n, clus_n, _ = tuple(row)
     G.add_node(clus, type='clus', cluster=clus)
-    G.add_node(var, type='var', cluster=clus)     
+    G.add_node(var, type='fmcc var', cluster=clus)     
     G.add_node(clus_n, type='clus', cluster=clus_n)
-    if rsq > 0.49:
+    if rsq > 0.36:
         G.add_edge(clus, var, rsq=rsq)
-        if rsq_n > 0.49:
+        if rsq_n > 0.36:
             G.add_edge(clus_n, var, rsq=rsq_n)     
 
     
 for row in ln.itertuples():
     _, clus, var, rsq, rsq_n, clus_n, _ = tuple(row)
     G.add_node(clus, type='clus', cluster=clus)
-    G.add_node(var, type='var', cluster=clus)     
+    G.add_node(var, type='ln var', cluster=clus)     
     G.add_node(clus_n, type='clus', cluster=clus_n)
-    if rsq > 0.49:
+    if rsq > 0.36:
         G.add_edge(clus, var, rsq=rsq)
-        if rsq_n > 0.49:
+        if rsq_n > 0.36:
             G.add_edge(clus_n, var, rsq=rsq_n)
             
 # Customize the plot
@@ -70,7 +70,7 @@ for edge in G.edges():
     x1, y1 = pos[edge[1]]
     edge_trace['x'] += [x0, x1, None]
     edge_trace['y'] += [y0, y1, None]
-    edge_trace['line']['width'].append(G[edge[0]][edge[1]]['rsq'])
+    edge_trace['line']['width'].append(G[edge[0]][edge[1]]['rsq'] / 2)
     
 node_trace = go.Scatter(
     x=[], 
@@ -80,7 +80,8 @@ node_trace = go.Scatter(
         showscale=True,
         colorscale='YIGnBu',
         color=[], 
-        size=[],         
+        size=[],
+        symbol=[],       
         colorbar=dict(
             thickness=15,
             title='Cluster',
@@ -92,16 +93,23 @@ node_trace = go.Scatter(
     mode='markers', 
     hoverinfo='text',
 )
-
+        
 for node in G.nodes():
     x, y = pos[node]
     node_trace['x'].append(x)
     node_trace['y'].append(y)
     
-    if G.node[node]['type'] == 'var':
+    if G.node[node]['type'].find('var') > -1:
         node_trace['marker']['size'].append(5)
+        
+        if G.node[node]['type'] == 'fmcc var':
+            node_trace['marker']['symbol'].append('circle')
+        else:
+            node_trace['marker']['symbol'].append('diamond')
+        
     else:
         node_trace['marker']['size'].append(10)
+        node_trace['marker']['symbol'].append('circle')
         
     node_trace['marker']['color'].append(int(G.node[node]['cluster'][-2:]))
     node_trace['text'].append(node)
