@@ -9,9 +9,13 @@ The idea behind this visualization is to explore new variables from LexisNexis t
 # Interactive Graph
 In the following graph, each edge represents a correlation bound that is above 0.5 and each node is either a cluster component (big circle), or existing variables (small circle) or LexisNexis variables (x shape).
 
+## Update on 3/1/2017
+After rounds of exploration, it seems that LN variables are less correlated to the existing cluster structure and thus another Proc Varclus was performed on the LN variables alone. Proc score was used to reconstruct the cluster components of the existing structure so that LN variables could be re-assigned to existing structure if they appear closer to the existing one.
+
 Please click on the following graph for interaction.
 
 <div>
-    <a href="https://plot.ly/~jingmin1987/2/?share_key=1NeKzz7Di6fh2akYdiYh35" target="_blank" title="varclus" style="display: block; text-align: center;"><img src="https://plot.ly/~jingmin1987/2.png?share_key=1NeKzz7Di6fh2akYdiYh35" alt="varclus" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-    <script data-plotly="jingmin1987:2" sharekey-plotly="1NeKzz7Di6fh2akYdiYh35" src="https://plot.ly/embed.js" async></script>
+    <a href="https://plot.ly/~jingmin1987/4/?share_key=v9wwF4uxPf6TUU0C90Vcnm" target="_blank" title="varclus_ln" style="display: block; text-align: center;"><img src="https://plot.ly/~jingmin1987/4.png?share_key=v9wwF4uxPf6TUU0C90Vcnm" alt="varclus_ln" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="jingmin1987:4" sharekey-plotly="v9wwF4uxPf6TUU0C90Vcnm" src="https://plot.ly/embed.js" async></script>
 </div>
+
