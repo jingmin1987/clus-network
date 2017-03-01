@@ -15,7 +15,7 @@ After rounds of exploration, it seems that LN variables are less correlated to t
 Please click on the following graph for interaction.
 
 <div>
-    <a href="https://plot.ly/~jingmin1987/4/?share_key=v9wwF4uxPf6TUU0C90Vcnm" target="_blank" title="varclus_ln" style="display: block; text-align: center;"><img src="https://plot.ly/~jingmin1987/4.png?share_key=v9wwF4uxPf6TUU0C90Vcnm" alt="varclus_ln" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <a href="https://plot.ly/~jingmin1987/4/?share_key=v9wwF4uxPf6TUU0C90Vcnm" target="_blank" title="varclus_ln" style="display: block; text-align: center;"><img src="https://plot.ly/~jingmin1987/4.png?share_key=v9wwF4uxPf6TUU0C90Vcnm" alt="varclus_ln" style="max-width: 100%;width: 1000px;"  width="1000" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
     <script data-plotly="jingmin1987:4" sharekey-plotly="v9wwF4uxPf6TUU0C90Vcnm" src="https://plot.ly/embed.js" async></script>
 </div>
 
